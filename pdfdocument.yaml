@@ -1,0 +1,9 @@
+apiVersion: aliap.io/v1
+kind: PDFDocument
+metadata:
+  name: my-document
+spec:
+  documentName: my-text
+  text: |
+    my pdf file is
+    very very **cool**.

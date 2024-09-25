@@ -1,0 +1,28 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: pdfdocuments.aliap.io  # Plural name for the CRD
+spec:
+  group: aliap.io  # API group
+  versions:
+    - name: v1  # Version of the CRD
+      served: true  # Whether this version is served
+      storage: true  # Whether this version is the storage version
+      schema:  # Define the schema for validating the resource
+        openAPIV3Schema:  # Use openAPIV3Schema instead of schema
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                documentName:
+                  type: string
+                text:
+                  type: string
+  scope: Namespaced  # Specify if the resource is namespaced or cluster-wide
+  names:
+    plural: pdfdocuments  # Plural name for the resource
+    singular: pdfdocument  # Singular name for the resource
+    kind: PDFDocument  # Kind name (uppercase)
+    shortNames:
+      - pdf  # Optional short names for the resource
